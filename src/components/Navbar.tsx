@@ -3,6 +3,7 @@ import { GraduationCap, ClipboardList, LayoutDashboard } from "lucide-react";
 
 const navItems = [
   { to: "/", label: "Home", icon: GraduationCap },
+  { to: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
 ];
 
 const Navbar = () => {
@@ -13,7 +14,7 @@ const Navbar = () => {
       <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-4">
         <Link to="/" className="flex items-center gap-2 font-display text-xl font-bold text-primary">
           <GraduationCap className="h-6 w-6" />
-          BEEBOX STUDIO
+          StudentReg
         </Link>
         <div className="flex items-center gap-1">
           {navItems.map(({ to, label, icon: Icon }) => (
