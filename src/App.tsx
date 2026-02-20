@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 
 import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
+import RequireAuth from "./components/RequireAuth";
 
 const queryClient = new QueryClient();
 
@@ -20,8 +21,9 @@ const App = () => (
         <Navbar />
         <Routes>
           <Route path="/" element={<Index />} />
-          
-          <Route path="/dashboard" element={<Dashboard />} />
+          <RequireAuth>
+            <Route path="/dashboard" element={<Dashboard />} />
+          </RequireAuth>
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
