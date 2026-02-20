@@ -5,7 +5,6 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Index from "./pages/Index";
-
 import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
 import RequireAuth from "./components/RequireAuth";
@@ -21,9 +20,16 @@ const App = () => (
         <Navbar />
         <Routes>
           <Route path="/" element={<Index />} />
-          <RequireAuth>
-            <Route path="/dashboard" element={<Dashboard />} />
-          </RequireAuth>
+
+          <Route
+            path="/dashboard"
+            element={
+              <RequireAuth>
+                <Dashboard />
+              </RequireAuth>
+            }
+          />
+
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
